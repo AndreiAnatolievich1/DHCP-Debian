@@ -46,3 +46,28 @@
 | 3    | Printers     | 192.168.3.0/24 | 192.168.3.1  | 192.168.3.2-254      |
 | 4    | Servers      | 192.168.4.0/24 | 192.168.4.1  | Статические адреса   |     
 <img width="1106" height="815" alt="Screenshot_3" src="https://github.com/user-attachments/assets/24c0aa83-0a51-4bf5-8291-80f76c005152" />
+
+Router2>en <br>
+Router2# conf t  <br>
+Router2(config)# int g0/0  <br>
+Router2(config-if)# no shudown   <br>
+Router2(config-if)# ip add 192.168.5.1 255.255.255.252  <br>
+Router2(config-if)#ex  <br>
+Router2(config)# int g0/1  <br>
+Router2(config-if)#no shudown  <br>
+Router2(config-if)#ex  <br>
+Router2(config)# int g0/1.2  <br>
+Router2(config-subif)# encapsulation dot1Q 2   <br>
+Router2(config-subif)# ip add 192.168.2.1 255.255.255.0  <br>
+Router2(config-subif)# ip helper-address 192.168.5.2  *эта команда выполняет ретрансляцию широковещательных DHCP-запросов *  <br>
+Router2(config-subif)# ex  <br>
+Router2(config)# int g0/1.3  <br>
+Router2(config-subif)# encapsulation dot1Q 3   <br>
+Router2(config-subif)# ip add 192.168.3.1 255.255.255.0  <br>
+Router2(config-subif)# ip helper-address 192.168.5.2  <br>
+Router2(config-subif)# ex  <br>
+Router2(config)# int g0/1.4  <br>
+Router2(config-subif)# encapsulation dot1Q 4  <br>
+Router2(config-subif)# ip add 192.168.4.1 255.255.255.0  <br>
+Router2(config-subif)# ip helper-address 192.168.5.2  <br>
+Router2(config-subif)# ex <br>
