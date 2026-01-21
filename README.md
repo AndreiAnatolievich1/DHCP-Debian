@@ -57,7 +57,7 @@ Router2(config)# int g0/1  <br>
 Router2(config-if)#no shudown  <br>
 Router2(config-if)#ex  <br>
 Router2(config)# int g0/1.2  <br>
-Router2(config-subif)# encapsulation dot1Q 2   <br>
+Router2(config-subif)# ёencapsulation dot1Q 2ё   <br>
 Router2(config-subif)# ip add 192.168.2.1 255.255.255.0  <br>
 Router2(config-subif)# ip helper-address 192.168.5.2  *эта команда выполняет ретрансляцию широковещательных DHCP-запросов *  <br>
 Router2(config-subif)# ex  <br>
